@@ -2,7 +2,10 @@ name: Reading Repositories Secrets
 
 on:
   workflow_dispatch: # Allows you to trigger this build manually
-
+env:
+  PASSWORD: ${{secrets.STOREPASSWORD}}
+  KEYFILE: ${{secrets.STOREFILE}}
+  STORENAME: ${{secrets.DEMOAPP}}
 jobs:
   reading-secrets:
     runs-on: ubuntu-latest
@@ -10,8 +13,10 @@ jobs:
     steps:
       # Step 1: Clones your repository containing your Flutter app
       - name: Reading STOREPASSWORD
-        run: echo "My Password ${{secrets.STOREPASSWORD}} IS This"
+        run: echo "My Password $PASSWORD IS This"
         
       - name: Reading STOREFILE
-        run: echo "My Upload.jks file location ${{secrets.STOREFILE}} IS This"
+        run: echo "My Upload.jks file location ${KEYFILE} IS This"
+      - name: Reading STORENAME
+        run: echo "My Store name is $STORENAME END"
         
