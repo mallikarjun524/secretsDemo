@@ -5,7 +5,7 @@ on:
 env:
   PASSWORD: ${{secrets.STOREPASSWORD}}
   KEYFILE: ${{secrets.STOREFILE}}
-  STORENAME: ${{secrets.DEMOAPP}}
+  STORENAME: "Waste Data"
 jobs:
   reading-secrets:
     runs-on: ubuntu-latest
